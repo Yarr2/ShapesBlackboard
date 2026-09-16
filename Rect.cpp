@@ -1,11 +1,15 @@
-#include "Point.h"
+#include "Rect.h"
 
 
-void Point::move(int x, int y) {
+void Rect::move(int x, int y) {
 	_x += x;
 	_y += y;
-}
-void Point::set(int x, int y) {
+};
+void Rect::setStart(int x, int y) {
 	_x = x;
 	_y = y;
+};
+void Rect::setSize(int height, int width) {
+	_height = height;
+	_width = width;
 }
