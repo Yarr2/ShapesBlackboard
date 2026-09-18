@@ -139,14 +139,18 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Board.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="ShapesBlackboard.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Board.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shape.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

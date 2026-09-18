@@ -6,13 +6,26 @@
 
 class Shape
 {
+protected:
 	Color _color;
 	Rect _bounding_box;
+	int _id = 0;
+	bool _setted_id = false;
+public:	
+	void SetId(int id);
+	int getId();
 	Shape(Color color, Rect bbox) :
 		_color(color), _bounding_box(bbox) {};
 	void move(int x, int y);
 	void setColor(Color color) { _color = color; };
+	int get_start_x() {
+		return _bounding_box.get_start_x();
+	}
+	int get_start_y() {
+		return _bounding_box.get_start_y();
+	}
 	virtual	void setSize() {}
-	virtual std::vector<std::vector<char>> draw() = 0;
+	virtual std::vector<std::vector<std::string>>* draw() = 0;
+	virtual std::string get_desc() = 0;
 };
 
