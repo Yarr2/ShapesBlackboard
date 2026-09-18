@@ -141,6 +141,10 @@
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="CommandAdd.cpp" />
+    <ClCompile Include="CommandClear.cpp" />
+    <ClCompile Include="CommandDraw.cpp" />
+    <ClCompile Include="CommandError.cpp" />
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Rectangle.cpp" />
@@ -150,6 +154,11 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="CommandAdd.h" />
+    <ClInclude Include="CommandClear.h" />
+    <ClInclude Include="CommandDraw.h" />
+    <ClInclude Include="CommandError.h" />
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Rectangle.h" />

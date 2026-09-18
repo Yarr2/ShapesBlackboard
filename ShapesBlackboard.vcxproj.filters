@@ -31,6 +31,12 @@
     <Filter Include="Header Files\CommandLine">
       <UniqueIdentifier>{d592ff3d-1e15-4737-be2e-189a83b8952a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\CommandLine\Commands">
+      <UniqueIdentifier>{6806b32c-1482-4402-b880-b5539e5ceaf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CommandLine\Commands">
+      <UniqueIdentifier>{1c28b2b0-7290-4e18-a083-a7b3f32a19ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShapesBlackboard.cpp">
@@ -48,11 +54,23 @@
     <ClCompile Include="Shape.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
+    <ClCompile Include="CommandDraw.cpp">
+      <Filter>Source Files\CommandLine\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandClear.cpp">
+      <Filter>Source Files\CommandLine\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandAdd.cpp">
+      <Filter>Source Files\CommandLine\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandLine.cpp">
+      <Filter>Source Files\CommandLine</Filter>
+    </ClCompile>
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="CommandLine.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="CommandError.cpp">
+      <Filter>Source Files\CommandLine\Commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,8 +89,23 @@
     <ClInclude Include="Shape.h">
       <Filter>Header Files\Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="CommandDraw.h">
+      <Filter>Header Files\CommandLine\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandClear.h">
+      <Filter>Header Files\CommandLine\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandAdd.h">
+      <Filter>Header Files\CommandLine\Commands</Filter>
+    </ClInclude>
     <ClInclude Include="CommandLine.h">
       <Filter>Header Files\CommandLine</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files\CommandLine</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandError.h">
+      <Filter>Header Files\CommandLine\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

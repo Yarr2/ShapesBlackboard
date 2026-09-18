@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
     Board* board = new Board(40, 30);
     while (true) {
         std::cout << "> ";
-        std::cin >> command;
+        std::getline(std::cin, command);
 
         if (command == "exit") {
             return 0;
