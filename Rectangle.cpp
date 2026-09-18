@@ -1,5 +1,7 @@
 #include "Rectangle.h"
 #include "Color.h"
+#include <string>
+
 std::vector<std::vector<std::string>>* Rectangle::draw() {
 	std::vector<std::vector<std::string>>* board = _bounding_box.get_empty_rect();
 	for (auto& row : board[0]) {
@@ -9,4 +11,7 @@ std::vector<std::vector<std::string>>* Rectangle::draw() {
 		}
 	}
 	return board;
+}
+std::string Rectangle::get_desc() {
+	return std::to_string(_id) + " Rectangle";
 }

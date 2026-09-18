@@ -16,5 +16,6 @@ public:
 	void draw();
 	void add(Shape* shape);
 	void remove(int id);
+	void list_shapes();
 };
 

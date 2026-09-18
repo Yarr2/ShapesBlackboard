@@ -26,5 +26,6 @@ public:
 	}
 	virtual	void setSize() {}
 	virtual std::vector<std::vector<std::string>>* draw() = 0;
+	virtual std::string get_desc() = 0;
 };
 

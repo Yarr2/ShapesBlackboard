@@ -76,3 +76,16 @@ void Board::draw(){
 	}
 	display(*board);
 }
+
+void Board::list_shapes() {
+	for (Shape* shape : _shapes) {
+		std::cout << shape->get_desc() << "\n";
+	}
+}
+
+void Board::clear() {
+	for (Shape* shape : _shapes) {
+		delete shape;
+	}
+	_shapes.clear();
+}
