@@ -4,6 +4,7 @@
 #include <string>
 #include "Board.h"
 #include "Rectangle.h"
+#include "CommandLine.h"
 
 std::string colorRGB(const uint8_t R, const uint8_t G, const uint8_t B, std::string text) {
     return "\033[38;2;" 
@@ -24,16 +25,28 @@ int main(int argc, char** argv) {
     //std::cout << colorRGB(255, 0, 0, "RED");
     //std::cout << "\033[38;2;255;165;0mOrange Text\033[0m\n";
     //return 0;
-    Board board(40, 30);
-    Shape* rect1 = new Rectangle(Color(255, 0, 0), Rect(10, 10, 5, 5));
-    Shape* rect2 = new Rectangle(Color(0, 255, 0), Rect(13, 10, 5, 5));
-    Shape* rect3 = new Rectangle(Color(0, 0, 255), Rect(14, 10, 5, 5));
-    board.add(rect1);
-    board.add(rect2);
-    board.add(rect3);
-    board.remove(2);
-    board.list_shapes();
-    board.draw();
+    //Board board(40, 30);
+    //Shape* rect1 = new Rectangle(Color(255, 0, 0), Rect(10, 10, 5, 5));
+    //Shape* rect2 = new Rectangle(Color(0, 255, 0), Rect(13, 10, 5, 5));
+    //Shape* rect3 = new Rectangle(Color(0, 0, 255), Rect(14, 10, 5, 5));
+    //board.add(rect1);
+    //board.add(rect2);
+    //board.add(rect3);
+    //board.remove(2);
+    //board.list_shapes();
+    //board.draw();
+    std::string command;
+    Board* board = new Board(40, 30);
+    while (true) {
+        std::cout << "> ";
+        std::cin >> command;
+
+        if (command == "exit") {
+            return 0;
+        }
+
+        CommandLine::ExecuteCommand(*board,command);
+    }
 
     }
 
