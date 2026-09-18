@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+#include <string>
 class Rect
 {
 private:
@@ -18,5 +20,12 @@ public:
 	void setSize(int height, int width);
 	void setWidth(int width) { _width = width; };
 	void setHeight(int height) { _height = height; };
+	int get_start_x() {
+		return _x;
+	}
+	int get_start_y() {
+		return _y;
+	}
+	std::vector<std::vector<std::string>>* get_empty_rect();
 };
 
