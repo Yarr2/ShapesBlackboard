@@ -31,6 +31,8 @@ int main(int argc, char** argv) {
     board.add(rect1);
     board.add(rect2);
     board.add(rect3);
+    board.remove(2);
+    board.remove(3);
     board.draw();
 
     }

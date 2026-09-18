@@ -1,6 +1,12 @@
 #include "Board.h"
 
 void Board::add(Shape* shape) {
+	int max_id = 0;
+	if (_shapes.size() != 0) {
+		max_id = _shapes[_shapes.size() - 1]->getId();
+	}
+	max_id++;
+	shape->SetId(max_id);
 	_shapes.push_back(shape);
 }
 
@@ -11,6 +17,16 @@ void Board::display(const std::vector<std::vector<std::string>>& board) {
 		}
 		std::cout << "\n";
 	}
+}
+void Board::remove(int id) {
+	int element_id = -1;
+	for (Shape* shape : _shapes){
+		element_id++;
+		if (shape->getId() == id) {
+			break;
+		}
+	}
+	_shapes.erase(_shapes.begin() + element_id);
 }
 std::vector<std::vector<std::string>>* Board::get_empty_board() {
 	std::vector<std::vector<std::string>>* board = new std::vector<std::vector<std::string>>;

@@ -9,7 +9,11 @@ class Shape
 protected:
 	Color _color;
 	Rect _bounding_box;
+	int _id = 0;
+	bool _setted_id = false;
 public:	
+	void SetId(int id);
+	int getId();
 	Shape(Color color, Rect bbox) :
 		_color(color), _bounding_box(bbox) {};
 	void move(int x, int y);
