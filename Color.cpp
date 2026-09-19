@@ -9,8 +9,10 @@ Color::Color(const std::string color) {
 	std::cout << "Not implemented\n";
 }
 
-std::string Color::get_desc() {
-	return ";" + std::to_string(_r) +
-		";" + std::to_string(_g) +
-		";" + std::to_string(_b) + 'm';
+std::string Color::ColorText(std::string text) {
+	return "\033[38;2;"
+		+ std::to_string(_r) + ';'
+		+ std::to_string(_g) + ';'
+		+ std::to_string(_b) + 'm' + text + "\033[0m";
+
 }

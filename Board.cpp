@@ -64,7 +64,8 @@ void Board::draw(){
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				if (0 <= start_x + i && start_x + i < _height &&
-					0 <= start_y + j && start_y + j < _width) {
+					0 <= start_y + j && start_y + j < _width && 
+					shape_drawing[0][i][j] != "  ") {
 					board[0][start_x + i][start_y + j] = shape_drawing[0][i][j];
 				}
 
