@@ -18,7 +18,7 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
         if (parameters_stream >> start_x >> start_y >> height >> width) {
             Shape* shape = new Rectangle(color, Rect(start_x, start_y, height, width));
             board->add(shape);
-            std::cout << "Added rectangle";
+            std::cout << "Added rectangle\n";
         };
         return;
     };

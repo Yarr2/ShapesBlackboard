@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     //board.list_shapes();
     //board.draw();
     std::string command;
-    Board* board = new Board(40, 30);
+    Board* board = new Board(25,20);
     while (true) {
         std::cout << "> ";
         std::getline(std::cin, command);

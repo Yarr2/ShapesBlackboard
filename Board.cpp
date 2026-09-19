@@ -1,5 +1,8 @@
 #include "Board.h"
 
+
+
+
 void Board::add(Shape* shape) {
 	int max_id = 0;
 	if (_shapes.size() != 0) {
@@ -18,6 +21,8 @@ void Board::display(const std::vector<std::vector<std::string>>& board) {
 		std::cout << "\n";
 	}
 }
+
+
 void Board::remove(int id) {
 	int element_id = -1;
 	for (Shape* shape : _shapes){
@@ -28,6 +33,17 @@ void Board::remove(int id) {
 	}
 	_shapes.erase(_shapes.begin() + element_id);
 }
+
+void Board::removeSelected() {
+	if (_selectedId == -1) {
+		std::cout << "No shape is selected now\n";
+	}
+	else {
+		remove(_selectedId);
+		_selectedId = -1;
+	}
+}
+
 std::vector<std::vector<std::string>>* Board::get_empty_board() {
 	std::vector<std::vector<std::string>>* board = new std::vector<std::vector<std::string>>;
 	for (int i = -1; i <= _height; i++) {
@@ -50,6 +66,7 @@ std::vector<std::vector<std::string>>* Board::get_empty_board() {
 	return board;
 }
 
+
 void Board::draw(){
 	std::vector<std::vector<std::string>>* board = get_empty_board();
 	
@@ -59,13 +76,13 @@ void Board::draw(){
 		int start_y = shape->get_start_y();
 		int height, width;
 		height = shape_drawing->size();
-		width = shape_drawing[0].size();
+		width = shape_drawing[0][0].size();
 
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				if (0 <= start_x + i && start_x + i < _height &&
-					0 <= start_y + j && start_y + j < _width) {
-					board[0][start_x + i][start_y + j] = shape_drawing[0][i][j];
+				if (0 < start_x + i && start_x + i < _height &&
+					0 < start_y + j && start_y + j < _width) {
+					board[0][start_y + j][start_x + i] = shape_drawing[0][i][j];
 				}
 
 			}

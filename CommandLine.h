@@ -5,6 +5,9 @@
 #include "CommandClear.h"
 #include "CommandDraw.h"
 #include "CommandError.h"
+#include "CommandList.h"
+#include "CommandShapes.h"
+#include "CommandRemove.h"
 
 class CommandLine
 {

@@ -146,6 +146,9 @@
     <ClCompile Include="CommandDraw.cpp" />
     <ClCompile Include="CommandError.cpp" />
     <ClCompile Include="CommandLine.cpp" />
+    <ClCompile Include="CommandList.cpp" />
+    <ClCompile Include="CommandRemove.cpp" />
+    <ClCompile Include="CommandShapes.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shape.cpp" />
@@ -160,6 +163,9 @@
     <ClInclude Include="CommandDraw.h" />
     <ClInclude Include="CommandError.h" />
     <ClInclude Include="CommandLine.h" />
+    <ClInclude Include="CommandList.h" />
+    <ClInclude Include="CommandRemove.h" />
+    <ClInclude Include="CommandShapes.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shape.h" />

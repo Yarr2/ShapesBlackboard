@@ -29,6 +29,15 @@ Command* CommandLine::GetCommand(std::string name) {
 	else if (name == "add") {
 		command = new CommandAdd();
 	}
+	else if (name == "list") {
+		command = new CommandList();
+	}
+	else if (name == "shapes") {
+		command = new CommandShapes();
+	}
+	else if (name == "remove") {
+		command = new CommandRemove();
+	}
 	else {
 		command = new CommandError();
 	};
