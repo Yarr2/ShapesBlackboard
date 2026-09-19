@@ -38,6 +38,9 @@ Command* CommandLine::GetCommand(std::string name) {
 	else if (name == "remove") {
 		command = new CommandRemove();
 	}
+	else if (name == "paint") {
+		command = new CommandPaint();
+	}
 	else {
 		command = new CommandError();
 	};

@@ -8,6 +8,7 @@
 #include "CommandList.h"
 #include "CommandShapes.h"
 #include "CommandRemove.h"
+#include "CommandPaint.h"
 
 class CommandLine
 {

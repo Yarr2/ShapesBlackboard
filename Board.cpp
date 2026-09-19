@@ -22,15 +22,25 @@ void Board::display(const std::vector<std::vector<std::string>>& board) {
 	}
 }
 
-
-void Board::remove(int id) {
+Shape* Board::getById(int id) {
 	int element_id = -1;
-	for (Shape* shape : _shapes){
+	for (Shape* shape : _shapes) {
 		element_id++;
 		if (shape->getId() == id) {
-			break;
+			return shape;
 		}
 	}
+	std::cout << "There is no shape with this id";
+
+}
+
+void Board::remove(int id) {
+	Shape* shape = getById(id);
+	
+	if (shape == nullptr) return;
+	
+	int element_id = shape->getId();
+
 	_shapes.erase(_shapes.begin() + element_id);
 }
 
@@ -40,6 +50,26 @@ void Board::removeSelected() {
 	}
 	else {
 		remove(_selectedId);
+		_selectedId = -1;
+	}
+}
+
+void Board::paint(int id, Color color) {
+	Shape* shape = getById(id);
+
+	if (shape == nullptr) return;
+	
+	shape->setColor(color);
+
+}
+
+void Board::paintSelected(Color color) {
+	if (_selectedId == -1) {
+		std::cout << "No shape is selected now\n";
+	}
+	else {
+		Shape* shape = getById(_selectedId);
+		if (shape != nullptr) shape->setColor(color);
 		_selectedId = -1;
 	}
 }

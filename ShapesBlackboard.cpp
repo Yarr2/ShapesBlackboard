@@ -5,6 +5,7 @@
 #include "Board.h"
 #include "Rectangle.h"
 #include "CommandLine.h"
+#include "Color.h"
 
 std::string colorRGB(const uint8_t R, const uint8_t G, const uint8_t B, std::string text) {
     return "\033[38;2;" 
@@ -44,7 +45,9 @@ int main(int argc, char** argv) {
         if (command == "exit") {
             return 0;
         }
-
+        //{
+            //Color color(command);
+        //}
         CommandLine::ExecuteCommand(*board,command);
     }
 

@@ -1,4 +1,7 @@
 #include "Color.h"
+#include <sstream>
+
+
 Color::Color(int r, int g, int b) {
 	_r = r;
 	_g = g;
@@ -24,6 +27,28 @@ Color::Color(const std::string color) {
 		_b = 255;
 		return;
 	}
+
+	
+	std::stringstream color_input(color);
+	int RED, GREEN, BLUE;
+	char a, b;
+	if (color_input
+		>> RED
+		>> a
+		>> GREEN
+		>> b
+		>> BLUE)
+	{
+		if (a == '-' && b == '-') {
+			_r = RED;
+			_g = GREEN;
+			_b = BLUE;
+			return;
+		}
+		return;
+	}
+	
+
 	return;
 }
 

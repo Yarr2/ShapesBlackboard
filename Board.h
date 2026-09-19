@@ -9,6 +9,7 @@ class Board
 	std::vector<Shape*> _shapes{};
 	std::vector<std::vector<std::string>>* get_empty_board();
 	void display(const std::vector<std::vector<std::string>>& board);
+	Shape* getById(int id);
 public:
 	Board(int width, int height) {
 		_width = width;
@@ -17,7 +18,9 @@ public:
 	void draw();
 	void add(Shape* shape);
 	void remove(int id);
+	void paint(int id, Color color);
 	void removeSelected();
+	void paintSelected(Color color);
 	void list_shapes();
 	void clear();
 };
