@@ -6,7 +6,25 @@ Color::Color(int r, int g, int b) {
 }
 Color::Color(const std::string color) {
 	
-	std::cout << "Not implemented\n";
+	if (color == "red") {
+		_r = 255;
+		_g = 0;
+		_b = 0;
+		return;
+	}
+	if (color == "green") {
+		_r = 0;
+		_g = 255;
+		_b = 0;
+		return;
+	}
+	if (color == "blue") {
+		_r = 0;
+		_g = 0;
+		_b = 255;
+		return;
+	}
+	return;
 }
 
 std::string Color::get_desc() {
