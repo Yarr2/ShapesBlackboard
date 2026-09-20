@@ -23,6 +23,8 @@ public:
 	void paintSelected(Color color);
 	void editSelected(std::string parameters);
 	void moveSelected(std::string parameters);
+	void selectById(int id);
+	void selectByCoordinates(int x, int y);
 	void list_shapes();
 	void clear();
 };

@@ -23,9 +23,7 @@ void Board::display(const std::vector<std::vector<std::string>>& board) {
 }
 
 Shape* Board::getById(int id) {
-	int element_id = -1;
 	for (Shape* shape : _shapes) {
-		element_id++;
 		if (shape->getId() == id) {
 			return shape;
 		}
@@ -39,10 +37,15 @@ void Board::remove(int id) {
 	Shape* shape = getById(id);
 	
 	if (shape == nullptr) return;
-	
-	int element_id = shape->getId();
 
-	_shapes.erase(_shapes.begin() + element_id - 1);
+	int element_id = -1;
+	for (Shape* shape : _shapes) {
+		element_id++;
+		if (shape->getId() == id) {
+			break;
+		}
+	}
+	_shapes.erase(_shapes.begin() + element_id);
 }
 
 void Board::removeSelected() {
@@ -155,9 +158,55 @@ void Board::moveSelected(std::string parameters) {
 
 	shape->move(parameters);
 
-	int element_id = shape->getId();
-
-	_shapes.erase(_shapes.begin() + element_id - 1);
+	int element_id = -1;
+	for (Shape* _shape : _shapes) {
+		element_id++;
+		if (_shape == shape) {
+			break;
+		}
+	}
+	_shapes.erase(_shapes.begin() + element_id);
 
 	_shapes.push_back(shape);
+}
+
+void Board::selectById(int id) {
+	for (Shape* shape : _shapes) {
+		if (shape->getId() == id) {
+			_selectedId = id;
+			std::cout << "Selected shape:\n" << shape->get_desc() << "\n";
+			return;
+		}
+	}
+	std::cout << "There is no shape with such id.\n";
+}
+
+void Board::selectByCoordinates(int x, int y) {
+	int id = -1;
+	int shape_x, shape_y;
+	int height, width;
+
+	for (Shape* shape : _shapes) {
+		
+		std::vector<std::vector<std::string>>* shape_drawing = shape->draw();
+
+		shape_x = shape->get_start_x();
+		shape_y = shape->get_start_y();
+		height = shape_drawing->size();
+		width = shape_drawing[0][0].size();
+
+		
+
+		if (0 <= y - shape_y && y - shape_y < height &&
+			0 <= x - shape_x && x - shape_x < width &&
+			shape_drawing[0][y - shape_y][x - shape_x] != "  ") {
+			id = shape->getId();
+		}
+	}
+	if (id != -1) {
+		_selectedId = id;
+		std::cout << "Selected shape:\n" << getById(id)->get_desc() << "\n";
+		return;
+	}	
+	std::cout << "There is no shape at that point\n";
 }

@@ -11,6 +11,7 @@
 #include "CommandPaint.h"
 #include "CommandEdit.h"
 #include "CommandMove.h"
+#include "CommandSelect.h"
 
 class CommandLine
 {

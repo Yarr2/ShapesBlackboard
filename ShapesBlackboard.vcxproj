@@ -151,6 +151,7 @@
     <ClCompile Include="CommandMove.cpp" />
     <ClCompile Include="CommandPaint.cpp" />
     <ClCompile Include="CommandRemove.cpp" />
+    <ClCompile Include="CommandSelect.cpp" />
     <ClCompile Include="CommandShapes.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Rectangle.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="CommandMove.h" />
     <ClInclude Include="CommandPaint.h" />
     <ClInclude Include="CommandRemove.h" />
+    <ClInclude Include="CommandSelect.h" />
     <ClInclude Include="CommandShapes.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Rectangle.h" />

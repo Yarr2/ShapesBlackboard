@@ -47,6 +47,9 @@ Command* CommandLine::GetCommand(std::string name) {
 	else if (name == "move") {
 		command = new CommandMove();
 	}
+	else if (name == "select") {
+		command = new CommandSelect();
+	}
 	else {
 		command = new CommandError();
 	};

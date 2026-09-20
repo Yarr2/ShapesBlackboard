@@ -8,5 +8,7 @@ void CommandRemove::ExecuteParameters(Board* board, std::string parameters) {
 	if (parameters_stream >> id) {
 		board->remove(id);
 	}
-	board->removeSelected();
+	else {
+		board->removeSelected();
+	}
 }
