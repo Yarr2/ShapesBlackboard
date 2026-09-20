@@ -61,5 +61,4 @@ std::string Color::ColorText(std::string text) {
 		+ std::to_string(_r) + ';'
 		+ std::to_string(_g) + ';'
 		+ std::to_string(_b) + 'm' + text + "\033[0m";
-
 }

@@ -3,7 +3,7 @@
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Line.h"
-
+#include "Triangle.h"
 
 
 std::string Serialiser::serialize_board(Board* board) {
@@ -74,6 +74,17 @@ Board* Serialiser::decerialise(std::string text) {
 					int x1, y1, x2, y2;
 					if (line_stream >> x1 >> y1 >> x2 >> y2) {
 						Shape* shape = new Line(is_filled, color, x1, y1, x2, y2);
+						shape->SetId(id);
+						loaded_board->add(shape);
+						continue;
+					}
+					delete loaded_board;
+					return nullptr;
+				}
+				if (type == "triangle") {
+					int x1, y1, x2, y2, x3, y3;
+					if (line_stream >> x1 >> y1 >> x2 >> y2 >> x3 >> y3) {
+						Shape* shape = new Triangle(is_filled, color, x1, y1, x2, y2,x3,y3);
 						shape->SetId(id);
 						loaded_board->add(shape);
 						continue;

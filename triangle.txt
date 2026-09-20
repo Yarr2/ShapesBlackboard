@@ -1,0 +1,5 @@
+BOARD: 25 20 -1
+SHAPE: 1 0-255-0 fill triangle 2 4 12 4 6 14
+SHAPE: 2 255-0-0 fill line 2 4 12 4
+SHAPE: 3 255-0-0 fill line 2 4 6 14
+SHAPE: 4 255-0-0 fill line 6 14 12 4

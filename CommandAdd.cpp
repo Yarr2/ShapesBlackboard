@@ -2,6 +2,7 @@
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Line.h"
+#include "Triangle.h"
 #include <sstream>
 
 
@@ -50,6 +51,15 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
             Shape* shape = new Line(is_filled, color, x1, y1, x2, y2);
             board->add(shape);
             std::cout << "Added line\n";
+        }
+        return;
+    }
+    if (shape_type == "triangle") {
+        int x1, y1, x2, y2, x3, y3;
+        if (parameters_stream >> x1 >> y1 >> x2 >> y2 >> x3 >> y3) {
+            Shape* shape = new Triangle(is_filled, color, x1, y1, x2, y2, x3, y3);
+            board->add(shape);
+            std::cout << "Added triangle\n";
         }
         return;
     }

@@ -163,6 +163,7 @@
     <ClCompile Include="Serialiser.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="ShapesBlackboard.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Serialiser.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
