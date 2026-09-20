@@ -1,5 +1,8 @@
 #include "Board.h"
 
+
+
+
 void Board::add(Shape* shape) {
 	int max_id = 0;
 	if (_shapes.size() != 0) {
@@ -18,9 +21,25 @@ void Board::display(const std::vector<std::vector<std::string>>& board) {
 		std::cout << "\n";
 	}
 }
+
+Shape* Board::getById(int id) {
+	for (Shape* shape : _shapes) {
+		if (shape->getId() == id) {
+			return shape;
+		}
+	}
+	std::cout << "There is no shape with this id\n";
+	return nullptr;
+
+}
+
 void Board::remove(int id) {
+	Shape* shape = getById(id);
+	
+	if (shape == nullptr) return;
+
 	int element_id = -1;
-	for (Shape* shape : _shapes){
+	for (Shape* shape : _shapes) {
 		element_id++;
 		if (shape->getId() == id) {
 			break;
@@ -28,6 +47,36 @@ void Board::remove(int id) {
 	}
 	_shapes.erase(_shapes.begin() + element_id);
 }
+
+void Board::removeSelected() {
+	if (_selectedId == -1) {
+		std::cout << "No shape is selected now\n";
+	}
+	else {
+		remove(_selectedId);
+		_selectedId = -1;
+	}
+}
+
+void Board::paint(int id, Color color) {
+	Shape* shape = getById(id);
+
+	if (shape == nullptr) return;
+	
+	shape->setColor(color);
+
+}
+
+void Board::paintSelected(Color color) {
+	if (_selectedId == -1) {
+		std::cout << "No shape is selected now\n";
+	}
+	else {
+		Shape* shape = getById(_selectedId);
+		if (shape != nullptr) shape->setColor(color);
+	}
+}
+
 std::vector<std::vector<std::string>>* Board::get_empty_board() {
 	std::vector<std::vector<std::string>>* board = new std::vector<std::vector<std::string>>;
 	for (int i = -1; i <= _height; i++) {
@@ -50,6 +99,7 @@ std::vector<std::vector<std::string>>* Board::get_empty_board() {
 	return board;
 }
 
+
 void Board::draw(){
 	std::vector<std::vector<std::string>>* board = get_empty_board();
 	
@@ -59,14 +109,13 @@ void Board::draw(){
 		int start_y = shape->get_start_y();
 		int height, width;
 		height = shape_drawing->size();
-		width = shape_drawing[0].size();
+		width = shape_drawing[0][0].size();
 
-		for (int i = 0; i < height; i++) {
+			for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				if (0 <= start_x + i && start_x + i < _height &&
-					0 <= start_y + j && start_y + j < _width && 
-					shape_drawing[0][i][j] != "  ") {
-					board[0][start_x + i][start_y + j] = shape_drawing[0][i][j];
+				if (0 < start_x + i && start_x + i < _height &&
+					0 < start_y + j && start_y + j < _width) {
+					board[0][start_y + i][start_x + j] = shape_drawing[0][i][j];
 				}
 
 			}
@@ -89,4 +138,75 @@ void Board::clear() {
 		delete shape;
 	}
 	_shapes.clear();
+}
+
+void Board::editSelected(std::string parameters) {
+	Shape* shape = getById(_selectedId);
+
+	if (shape == nullptr) {
+		std::cout << "No shape is selected now.\n";
+	}
+
+	shape->edit(parameters);
+}
+void Board::moveSelected(std::string parameters) {
+	Shape* shape = getById(_selectedId);
+
+	if (shape == nullptr) {
+		std::cout << "No shape is selected now.\n";
+	}
+
+	shape->move(parameters);
+
+	int element_id = -1;
+	for (Shape* _shape : _shapes) {
+		element_id++;
+		if (_shape == shape) {
+			break;
+		}
+	}
+	_shapes.erase(_shapes.begin() + element_id);
+
+	_shapes.push_back(shape);
+}
+
+void Board::selectById(int id) {
+	for (Shape* shape : _shapes) {
+		if (shape->getId() == id) {
+			_selectedId = id;
+			std::cout << "Selected shape:\n" << shape->get_desc() << "\n";
+			return;
+		}
+	}
+	std::cout << "There is no shape with such id.\n";
+}
+
+void Board::selectByCoordinates(int x, int y) {
+	int id = -1;
+	int shape_x, shape_y;
+	int height, width;
+
+	for (Shape* shape : _shapes) {
+		
+		std::vector<std::vector<std::string>>* shape_drawing = shape->draw();
+
+		shape_x = shape->get_start_x();
+		shape_y = shape->get_start_y();
+		height = shape_drawing->size();
+		width = shape_drawing[0][0].size();
+
+		
+
+		if (0 <= y - shape_y && y - shape_y < height &&
+			0 <= x - shape_x && x - shape_x < width &&
+			shape_drawing[0][y - shape_y][x - shape_x] != "  ") {
+			id = shape->getId();
+		}
+	}
+	if (id != -1) {
+		_selectedId = id;
+		std::cout << "Selected shape:\n" << getById(id)->get_desc() << "\n";
+		return;
+	}	
+	std::cout << "There is no shape at that point\n";
 }
