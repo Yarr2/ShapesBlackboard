@@ -1,4 +1,6 @@
 #include "CommandLine.h"
+
+
 void CommandLine::SplitCommand(std::string& command, std::string& name, std::string& parameters) {
 	bool is_name = true;
 
@@ -49,6 +51,12 @@ Command* CommandLine::GetCommand(std::string name) {
 	}
 	else if (name == "select") {
 		command = new CommandSelect();
+	}
+	else if (name == "save") {
+		command = new CommandSave();
+	}
+	else if (name == "load") {
+		command = new CommandLoad();
 	}
 	else {
 		command = new CommandError();

@@ -149,14 +149,18 @@
     <ClCompile Include="CommandError.cpp" />
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="CommandList.cpp" />
+    <ClCompile Include="CommandLoad.cpp" />
     <ClCompile Include="CommandMove.cpp" />
     <ClCompile Include="CommandPaint.cpp" />
     <ClCompile Include="CommandRemove.cpp" />
+    <ClCompile Include="CommandSave.cpp" />
     <ClCompile Include="CommandSelect.cpp" />
     <ClCompile Include="CommandShapes.cpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Serialiser.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="ShapesBlackboard.cpp" />
   </ItemGroup>
@@ -172,14 +176,18 @@
     <ClInclude Include="CommandError.h" />
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="CommandList.h" />
+    <ClInclude Include="CommandLoad.h" />
     <ClInclude Include="CommandMove.h" />
     <ClInclude Include="CommandPaint.h" />
     <ClInclude Include="CommandRemove.h" />
+    <ClInclude Include="CommandSave.h" />
     <ClInclude Include="CommandSelect.h" />
     <ClInclude Include="CommandShapes.h" />
+    <ClInclude Include="FileManager.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Serialiser.h" />
     <ClInclude Include="Shape.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

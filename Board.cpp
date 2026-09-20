@@ -12,6 +12,21 @@ void Board::add(Shape* shape) {
 	shape->SetId(max_id);
 	_shapes.push_back(shape);
 }
+std::string Board::get_header() {
+	return "BOARD: " +
+		std::to_string(_width) + " " +
+		std::to_string(_height) + " " +
+		std::to_string(_selectedId) + "\n";
+}
+std::string Board::serialise_shapes() {
+	std::string result;
+
+	for (Shape* shape : _shapes) {
+		result += shape->serialise();
+		result += "\n";
+	}
+	return result;
+}
 
 void Board::display(const std::vector<std::vector<std::string>>& board) {
 	for (auto& row : board) {

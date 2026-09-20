@@ -66,3 +66,9 @@ void Shape::move(std::string parameters) {
 	}
 	_bounding_box.setStart(start_x, start_y);
 }
+
+std::string Shape::serialise() {
+	return "SHAPE: " + std::to_string(_id) + " " + 
+		_color.getRGBdefinition() + " "
+		+ (is_filled ? "fill " : "frame ");
+}

@@ -12,7 +12,8 @@
 #include "CommandEdit.h"
 #include "CommandMove.h"
 #include "CommandSelect.h"
-
+#include "CommandSave.h"
+#include "CommandLoad.h"
 class CommandLine
 {
 	static void SplitCommand(std::string& command, std::string& name, std::string& parameters);

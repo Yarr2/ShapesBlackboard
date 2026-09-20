@@ -100,3 +100,9 @@ void Circle::move(std::string parameters) {
 	_center_y = center_y;   
 }
 
+std::string Circle::serialise() {
+	return Shape::serialise() + "circle "
+		+ std::to_string(_center_x) + " "
+		+ std::to_string(_center_y) + " "
+		+ std::to_string(_radius);
+}

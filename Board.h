@@ -5,7 +5,7 @@ class Board
 {
 	int _width = 0;
 	int _height = 0;
-	int _selectedId = 1;
+	int _selectedId = -1;	
 	std::vector<Shape*> _shapes{};
 	std::vector<std::vector<std::string>>* get_empty_board();
 	void display(const std::vector<std::vector<std::string>>& board);
@@ -15,6 +15,9 @@ public:
 		_width = width;
 		_height = height;
 	}
+	std::string get_header();
+	std::string serialise_shapes();
+
 	void draw();
 	void add(Shape* shape);
 	void remove(int id);

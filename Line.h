@@ -13,6 +13,7 @@ public:
     std::vector<std::vector<std::string>>* draw() override;
     std::string get_desc() override;
     void edit(std::string parameters) override;
+    std::string serialise() override;
 
 };
 

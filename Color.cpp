@@ -51,7 +51,11 @@ Color::Color(const std::string color) {
 
 	return;
 }
-
+std::string Color::getRGBdefinition() {
+	return std::to_string(_r) + '-'
+		+ std::to_string(_g) + '-'
+		+ std::to_string(_b);
+}
 std::string Color::ColorText(std::string text) {
 	return "\033[38;2;"
 		+ std::to_string(_r) + ';'

@@ -25,3 +25,10 @@ std::vector<std::vector<std::string>>* Rect::get_empty_rect() {
 	}
 	return board;
 }
+
+std::string Rect::serialise() {
+	return std::to_string(_x) + " "
+		+ std::to_string(_y) + " "
+		+ std::to_string(_height) + " "
+		+ std::to_string(_width);
+}

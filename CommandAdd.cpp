@@ -22,7 +22,10 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
         return;
     }
     Color color(color_input);
-    
+    if (!color.is_correct_color()) {
+        std::cout << "Wrong color\n";
+        return;
+    }
     if (shape_type == "rect") {
         int start_x, start_y, height, width;
         if (parameters_stream >> start_x >> start_y >> height >> width) {

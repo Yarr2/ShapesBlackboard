@@ -8,7 +8,10 @@ void CommandPaint::ExecuteParameters(Board* board, std::string parameters) {
 	std::string color_input;
 	std::getline(parameters_stream, color_input, ' ');
 	Color color(color_input);
-
+	if (!color.is_correct_color()) {
+		std::cout << "Wrong color\n";
+		return;
+	}
 	if (parameters_stream >> id) {
 		board->paint(id, color);
 		return;

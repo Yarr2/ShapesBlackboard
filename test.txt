@@ -1,0 +1,5 @@
+BOARD: 25 20 -1
+SHAPE: 1 0-255-0 frame rect 5 5 10 5
+SHAPE: 2 255-0-255 fill circle 7 8 4
+SHAPE: 3 0-0-0 fill line 1 2 9 12
+SHAPE: 4 255-255-255 fill line 1 2 9 12

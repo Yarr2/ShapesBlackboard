@@ -22,6 +22,7 @@ public:
 		_color(color), _bounding_box(bbox) {
 		is_filled = filled;
 	};
+	virtual std::string serialise();
 	void move(int x, int y);
 	void setColor(Color color) { _color = color; };
 	int get_start_x() {

@@ -100,3 +100,13 @@ void Line::edit(std::string parameters) {
 		std::cout << "Not enough parameters for edit\n";
 	}
 }
+
+
+std::string Line::serialise() {
+	return Shape::serialise() + "line "
+		+ std::to_string(_x_point1) + " "
+		+ std::to_string(_y_point1) + " "
+		+ std::to_string(_x_point2) + " "
+		+ std::to_string(_y_point2);
+
+}

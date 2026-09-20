@@ -66,3 +66,8 @@ void Rectangle::edit(std::string parameters) {
 	if (height != -1)_bounding_box.setHeight(height);
 	if (width != -1) _bounding_box.setWidth(width);
 }	
+
+std::string Rectangle::serialise() {
+	return Shape::serialise() + "rect "
+		+ _bounding_box.serialise();
+}

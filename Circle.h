@@ -13,5 +13,6 @@ public:
     std::string get_desc() override;
     void edit(std::string parameters) override;
     void move(std::string parameters) override;
+    std::string serialise() override;
 };
 
