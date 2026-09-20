@@ -73,7 +73,11 @@ std::vector<std::vector<std::string>>* Line::draw() {
 }
 
 std::string Line::get_desc() {
-    return std::to_string(_id) + "Line\n";
+    return std::to_string(_id) + " Line" + " " + _color.getRGBdefinition() + " " 
+		+ std::to_string(_x_point1) + " "
+		+ std::to_string(_y_point1) + " "
+		+ std::to_string(_x_point2) + " "
+		+ std::to_string(_y_point2);
 }
 
 void Line::edit(std::string parameters) {

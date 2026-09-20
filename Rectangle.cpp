@@ -25,9 +25,7 @@ std::vector<std::vector<std::string>>* Rectangle::draw() {
 	}
 	return board;
 }
-std::string Rectangle::get_desc() {
-	return std::to_string(_id) + " Rectangle";
-}
+
 
 void Rectangle::edit(std::string parameters) {
 	std::stringstream parameters_input(parameters);
@@ -67,6 +65,10 @@ void Rectangle::edit(std::string parameters) {
 	if (width != -1) _bounding_box.setWidth(width);
 }	
 
+std::string Rectangle::get_desc() {
+	return std::to_string(_id) + " Rectangle " + _color.getRGBdefinition() + " "
+		+ _bounding_box.serialise();
+}
 std::string Rectangle::serialise() {
 	return Shape::serialise() + "rect "
 		+ _bounding_box.serialise();

@@ -102,7 +102,13 @@ std::vector<std::vector<std::string>>* Triangle::draw() {
 }
 
 std::string Triangle::get_desc() {
-    return std::to_string(_id) + " Triangle";
+    return std::to_string(_id) + " Triangle " + _color.getRGBdefinition()
+        + std::to_string(_x_point1) + " "
+        + std::to_string(_y_point1) + " "
+        + std::to_string(_x_point2) + " "
+        + std::to_string(_y_point2) + " "
+        + std::to_string(_x_point3) + " "
+        + std::to_string(_y_point3); " ";
 }
 
 void Triangle::edit(std::string parameters) {

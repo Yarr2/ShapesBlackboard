@@ -32,7 +32,8 @@ std::vector<std::vector<std::string>>* Circle::draw() {
 }
 
 std::string Circle::get_desc() {
-	return std::to_string(_id) + " Circle";
+	return std::to_string(_id) + " Circle" + " " + _color.getRGBdefinition() +
+		" " + std::to_string(_center_x) + " " + std::to_string(_center_y) + " " + std::to_string(_radius);
 }
 
 void Circle::edit(std::string parameters) {

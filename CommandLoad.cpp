@@ -10,7 +10,6 @@ void CommandLoad::ExecuteParameters(Board* board, std::string parameters) {
 		std::cout << "Not loaded board\n";
 		return; 
 	}
-	loaded_board->draw();
 
 	*board = *loaded_board;
 	return;
