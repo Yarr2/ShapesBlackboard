@@ -1,5 +1,7 @@
 #include "CommandAdd.h"
 #include "Rectangle.h"
+#include "Circle.h"
+#include "Line.h"
 #include <sstream>
 
 
@@ -22,6 +24,24 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
         };
         return;
     };
+    if (shape_type == "circle") {
+        int center_x, center_y, radius;
+        if (parameters_stream >> center_x >> center_y >> radius) {
+            Shape* shape = new Circle(color, center_x, center_y, radius);
+            board->add(shape);
+            std::cout << "Added circle\n";
+        }
+        return;
+    }
+    if (shape_type == "line") {
+        int x1, y1, x2, y2;
+        if (parameters_stream >> x1 >> y1 >> x2 >> y2){
+            Shape* shape = new Line(color, x1, y1, x2, y2);
+            board->add(shape);
+            std::cout << "Added line\n";
+        }
+        return;
+    }
     std::cout << "Our application does not support '" << shape_type << "' type of object.\n";
 
 

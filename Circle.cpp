@@ -1,7 +1,15 @@
 #include "Circle.h"
+#include <sstream>
+
+Rect Circle::get_rect(int center_x, int center_y, int radius) {
+	return Rect(center_x - radius, center_y - radius, 2 * radius + 1, 2 * radius + 1);
+}
 
 Circle::Circle(Color color, int center_x, int center_y, int radius)
-	: Shape(color, Rect(center_x - radius, center_y - radius, 2 * radius + 1, 2 * radius + 1)) {
+	: Shape(color, Circle::get_rect(center_x, center_y, radius)) {
+	_radius = radius;
+	_center_x = center_x;
+	_center_y = center_y;
 };
 
 std::vector<std::vector<std::string>>* Circle::draw() {
@@ -23,3 +31,69 @@ std::vector<std::vector<std::string>>* Circle::draw() {
 std::string Circle::get_desc() {
 	return std::to_string(_id) + " Circle";
 }
+
+void Circle::edit(std::string parameters) {
+	std::stringstream parameters_input(parameters);
+	int radius;
+
+	std::string token;
+
+	parameters_input >> token;
+
+	if (token == "-") {
+		radius = _radius;
+	}
+	else {
+		try {
+			radius = std::stoi(token);
+		}
+		catch (std::exception&) {
+			std::cout << "Wrong parameter for edit command. \n";
+			return;
+		}
+	}
+
+	_bounding_box = Circle::get_rect(_center_x, _center_y, radius);
+	_radius = radius;
+
+}
+
+void Circle::move(std::string parameters) {
+	std::stringstream parameters_input(parameters);
+
+	int center_x, center_y;
+
+	std::string token1, token2;
+
+	parameters_input >> token1 >> token2;
+
+	if (token1 == "-") {
+		center_x = _center_x;
+	}
+	else {
+		try {
+			center_x = std::stoi(token1);
+		}
+		catch (std::exception&) {
+			std::cout << "Wrong parameter for edit command. \n";
+			return;
+		}
+	}
+
+	if (token2 == "-") {
+		center_y = _center_y;
+	}
+	else {
+		try {
+			center_y = std::stoi(token2);
+		}
+		catch (std::exception&) {
+			std::cout << "Wrong parameter for edit command. \n";
+			return;
+		}
+	}
+	_bounding_box = Circle::get_rect(center_x, center_y, _radius);
+	_center_x = center_x;
+	_center_y = center_y;   
+}
+

@@ -2,7 +2,10 @@
 #include "Rect.h"
 #include "Color.h"
 #include "vector"
+#include <sstream>
 
+
+int get_int_or_default(std::string input, int default_value);
 
 class Shape
 {
@@ -28,7 +31,7 @@ public:
 	virtual std::vector<std::vector<std::string>>* draw() = 0;
 	virtual std::string get_desc() = 0;
 	virtual void edit(std::string parameters) = 0;
-	virtual void move(std::string parameters) = 0;
+	virtual void move(std::string parameters);
 	virtual ~Shape() = default;
 };
 

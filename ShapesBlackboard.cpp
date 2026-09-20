@@ -6,6 +6,7 @@
 #include "Rectangle.h"
 #include "CommandLine.h"
 #include "Color.h"
+#include "Line.h"
 
 std::string colorRGB(const uint8_t R, const uint8_t G, const uint8_t B, std::string text) {
     return "\033[38;2;" 
@@ -38,6 +39,8 @@ int main(int argc, char** argv) {
     //board.draw();
     std::string command;
     Board* board = new Board(25,20);
+    Shape* shape = new Line(Color("red"), 5, 5, 14, 11);
+    board->add(shape);
     while (true) {
         std::cout << "> ";
         std::getline(std::cin, command);
