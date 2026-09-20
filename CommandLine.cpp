@@ -41,9 +41,16 @@ Command* CommandLine::GetCommand(std::string name) {
 	else if (name == "paint") {
 		command = new CommandPaint();
 	}
+	else if (name == "edit") {
+		command = new CommandEdit();
+	}
+	else if (name == "move") {
+		command = new CommandMove();
+	}
 	else {
 		command = new CommandError();
 	};
+	
 	return command;
 }
 

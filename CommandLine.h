@@ -9,6 +9,8 @@
 #include "CommandShapes.h"
 #include "CommandRemove.h"
 #include "CommandPaint.h"
+#include "CommandEdit.h"
+#include "CommandMove.h"
 
 class CommandLine
 {

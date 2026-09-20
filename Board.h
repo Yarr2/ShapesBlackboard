@@ -5,7 +5,7 @@ class Board
 {
 	int _width = 0;
 	int _height = 0;
-	int _selectedId = -1;
+	int _selectedId = 1;
 	std::vector<Shape*> _shapes{};
 	std::vector<std::vector<std::string>>* get_empty_board();
 	void display(const std::vector<std::vector<std::string>>& board);
@@ -21,6 +21,8 @@ public:
 	void paint(int id, Color color);
 	void removeSelected();
 	void paintSelected(Color color);
+	void editSelected(std::string parameters);
+	void moveSelected(std::string parameters);
 	void list_shapes();
 	void clear();
 };

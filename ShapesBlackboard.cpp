@@ -45,9 +45,6 @@ int main(int argc, char** argv) {
         if (command == "exit") {
             return 0;
         }
-        //{
-            //Color color(command);
-        //}
         CommandLine::ExecuteCommand(*board,command);
     }
 

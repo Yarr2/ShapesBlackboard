@@ -144,9 +144,11 @@
     <ClCompile Include="CommandAdd.cpp" />
     <ClCompile Include="CommandClear.cpp" />
     <ClCompile Include="CommandDraw.cpp" />
+    <ClCompile Include="CommandEdit.cpp" />
     <ClCompile Include="CommandError.cpp" />
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="CommandList.cpp" />
+    <ClCompile Include="CommandMove.cpp" />
     <ClCompile Include="CommandPaint.cpp" />
     <ClCompile Include="CommandRemove.cpp" />
     <ClCompile Include="CommandShapes.cpp" />
@@ -162,9 +164,11 @@
     <ClInclude Include="CommandAdd.h" />
     <ClInclude Include="CommandClear.h" />
     <ClInclude Include="CommandDraw.h" />
+    <ClInclude Include="CommandEdit.h" />
     <ClInclude Include="CommandError.h" />
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="CommandList.h" />
+    <ClInclude Include="CommandMove.h" />
     <ClInclude Include="CommandPaint.h" />
     <ClInclude Include="CommandRemove.h" />
     <ClInclude Include="CommandShapes.h" />

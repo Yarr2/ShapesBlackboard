@@ -30,7 +30,8 @@ Shape* Board::getById(int id) {
 			return shape;
 		}
 	}
-	std::cout << "There is no shape with this id";
+	std::cout << "There is no shape with this id\n";
+	return nullptr;
 
 }
 
@@ -41,7 +42,7 @@ void Board::remove(int id) {
 	
 	int element_id = shape->getId();
 
-	_shapes.erase(_shapes.begin() + element_id);
+	_shapes.erase(_shapes.begin() + element_id - 1);
 }
 
 void Board::removeSelected() {
@@ -70,7 +71,6 @@ void Board::paintSelected(Color color) {
 	else {
 		Shape* shape = getById(_selectedId);
 		if (shape != nullptr) shape->setColor(color);
-		_selectedId = -1;
 	}
 }
 
@@ -108,11 +108,11 @@ void Board::draw(){
 		height = shape_drawing->size();
 		width = shape_drawing[0][0].size();
 
-		for (int i = 0; i < height; i++) {
+			for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				if (0 < start_x + i && start_x + i < _height &&
 					0 < start_y + j && start_y + j < _width) {
-					board[0][start_y + j][start_x + i] = shape_drawing[0][i][j];
+					board[0][start_y + i][start_x + j] = shape_drawing[0][i][j];
 				}
 
 			}
@@ -135,4 +135,29 @@ void Board::clear() {
 		delete shape;
 	}
 	_shapes.clear();
+}
+
+void Board::editSelected(std::string parameters) {
+	Shape* shape = getById(_selectedId);
+
+	if (shape == nullptr) {
+		std::cout << "No shape is selected now.\n";
+	}
+
+	shape->edit(parameters);
+}
+void Board::moveSelected(std::string parameters) {
+	Shape* shape = getById(_selectedId);
+
+	if (shape == nullptr) {
+		std::cout << "No shape is selected now.\n";
+	}
+
+	shape->move(parameters);
+
+	int element_id = shape->getId();
+
+	_shapes.erase(_shapes.begin() + element_id - 1);
+
+	_shapes.push_back(shape);
 }
