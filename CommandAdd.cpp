@@ -32,7 +32,6 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
         if (parameters_stream >> start_x >> start_y >> height >> width) {
             Shape* shape = new Rectangle(is_filled,color, Rect(start_x, start_y, height, width));
             board->add(shape);
-            std::cout << "Added rectangle\n";
         };
         return;
     };
@@ -41,8 +40,7 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
         if (parameters_stream >> center_x >> center_y >> radius) {
             Shape* shape = new Circle(is_filled, color, center_x, center_y, radius);
             board->add(shape);
-            std::cout << "Added circle\n";
-        }
+           }
         return;
     }
     if (shape_type == "line") {
@@ -50,7 +48,6 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
         if (parameters_stream >> x1 >> y1 >> x2 >> y2){
             Shape* shape = new Line(is_filled, color, x1, y1, x2, y2);
             board->add(shape);
-            std::cout << "Added line\n";
         }
         return;
     }
@@ -59,7 +56,6 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
         if (parameters_stream >> x1 >> y1 >> x2 >> y2 >> x3 >> y3) {
             Shape* shape = new Triangle(is_filled, color, x1, y1, x2, y2, x3, y3);
             board->add(shape);
-            std::cout << "Added triangle\n";
         }
         return;
     }

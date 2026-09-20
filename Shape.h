@@ -31,11 +31,14 @@ public:
 	int get_start_y() {
 		return _bounding_box.get_start_y();
 	}
+	std::string get_hash();
 	virtual	void setSize() {}
 	virtual std::vector<std::vector<std::string>>* draw() = 0;
 	virtual std::string get_desc() = 0;
 	virtual void edit(std::string parameters) = 0;
 	virtual void move(std::string parameters);
 	virtual ~Shape() = default;
+
+	bool is_correct_rect(int width, int height);
 };
 

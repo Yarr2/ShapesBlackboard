@@ -26,6 +26,14 @@ std::vector<std::vector<std::string>>* Rect::get_empty_rect() {
 	return board;
 }
 
+bool Rect::is_correct_rect(int width, int height) {
+	if (_width > width || _height > height) {
+		return false;
+	}
+	if (0 < _height + _y 
+	|| _y < height) return false;
+	return true;
+}
 std::string Rect::serialise() {
 	return std::to_string(_x) + " "
 		+ std::to_string(_y) + " "

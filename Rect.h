@@ -20,6 +20,7 @@ public:
 	void setSize(int height, int width);
 	void setWidth(int width) { _width = width; };
 	void setHeight(int height) { _height = height; };
+	bool is_correct_rect(int width, int height);
 	std::string serialise();
 	int get_start_x() {
 		return _x;

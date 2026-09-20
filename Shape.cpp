@@ -1,5 +1,7 @@
 #include "Shape.h"
 #include <sstream>
+#include <iostream>
+
 int get_int_or_default(std::string input, int default_value) {
 	int value;
 	if (input == "-") {
@@ -15,6 +17,9 @@ int get_int_or_default(std::string input, int default_value) {
 		}
 	}
 	return value;
+}
+bool Shape::is_correct_rect(int width, int height) {
+	return _bounding_box.is_correct_rect(width, height);
 }
 
 void Shape::move(int x, int y) {
@@ -71,4 +76,17 @@ std::string Shape::serialise() {
 	return "SHAPE: " + std::to_string(_id) + " " + 
 		_color.getRGBdefinition() + " "
 		+ (is_filled ? "fill " : "frame ");
+}
+
+std::string Shape::get_hash() {
+	std::string serialised = serialise();
+	std::string result, temp;
+	int id;
+
+	std::stringstream stream(serialised);
+
+	stream >> temp >> id;
+
+	std::getline(stream, result);
+	return result;
 }

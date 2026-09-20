@@ -10,7 +10,23 @@ void Board::add(Shape* shape) {
 	}
 	max_id++;
 	shape->SetId(max_id);
-	_shapes.push_back(shape);
+
+	std::hash<std::string> hasher;
+	for (Shape* _shape : _shapes) {
+		if (hasher(_shape->get_hash()) == hasher(shape->get_hash())) {
+			std::cout << "There is already such shape on the board\n";
+			delete shape;
+			return;
+		}
+	}
+	if (shape->is_correct_rect(_width, _height)) {
+		_shapes.push_back(shape);
+		std::cout << "Added shape:\n";
+		std::cout << shape->get_desc() << "\n";
+	}
+	else {
+		std::cout << "Your shape is too big or out of the board\n";
+	}
 }
 std::string Board::get_header() {
 	return "BOARD: " +
