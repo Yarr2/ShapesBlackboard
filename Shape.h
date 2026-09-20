@@ -14,11 +14,14 @@ protected:
 	Rect _bounding_box;
 	int _id = 0;
 	bool _setted_id = false;
+	bool is_filled = true;
 public:	
 	void SetId(int id);
 	int getId();
-	Shape(Color color, Rect bbox) :
-		_color(color), _bounding_box(bbox) {};
+	Shape(bool filled, Color color, Rect bbox) :
+		_color(color), _bounding_box(bbox) {
+		is_filled = filled;
+	};
 	void move(int x, int y);
 	void setColor(Color color) { _color = color; };
 	int get_start_x() {

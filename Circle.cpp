@@ -5,8 +5,8 @@ Rect Circle::get_rect(int center_x, int center_y, int radius) {
 	return Rect(center_x - radius, center_y - radius, 2 * radius + 1, 2 * radius + 1);
 }
 
-Circle::Circle(Color color, int center_x, int center_y, int radius)
-	: Shape(color, Circle::get_rect(center_x, center_y, radius)) {
+Circle::Circle(bool filled, Color color, int center_x, int center_y, int radius)
+	: Shape(filled, color, Circle::get_rect(center_x, center_y, radius)) {
 	_radius = radius;
 	_center_x = center_x;
 	_center_y = center_y;
@@ -18,10 +18,13 @@ std::vector<std::vector<std::string>>* Circle::draw() {
 	int size = board->size();
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
-
-			if ((2 * i - size + 1) * (2 * i - size + 1) + (2 * j - size + 1)  * (2 * j - size + 1) <= size * size) {
+			int radius = (2 * i - size + 1) * (2 * i - size + 1) + (2 * j - size + 1) * (2 * j - size + 1);
+			if (radius <= size * size && radius >= (size - 1) * (size - 1)) {
 				board[0][i][j] = _color.ColorText(std::string(2,char(219)));
 			};
+			if (radius <= (size - 1) * (size - 1) && is_filled) {
+				board[0][i][j] = _color.ColorText(std::string(2, char(219)));
+			}
 		}
 	}
 

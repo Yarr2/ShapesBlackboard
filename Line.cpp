@@ -8,8 +8,8 @@ Rect Line::get_rect(int x_point1, int y_point1, int x_point2, int y_point2) {
 		std::abs(x_point1 - x_point2) + 1);
 }
 
-Line::Line(Color color, int x_point1, int y_point1, int x_point2, int y_point2) 
-	: Shape(color, get_rect(x_point1, y_point1, x_point2, y_point2)) {
+Line::Line(bool filled, Color color, int x_point1, int y_point1, int x_point2, int y_point2)
+	: Shape(filled, color, get_rect(x_point1, y_point1, x_point2, y_point2)) {
 	if (x_point1 < x_point2) {
 		_x_point1 = x_point1;
 		_x_point2 = x_point2;

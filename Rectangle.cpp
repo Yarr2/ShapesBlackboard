@@ -7,9 +7,20 @@
 std::vector<std::vector<std::string>>* Rectangle::draw() {
 	std::vector<std::vector<std::string>>* board = _bounding_box.get_empty_rect();
 	
-	for (auto& row : board[0]) {
-		for (auto& string : row) {
-			string = _color.ColorText(std::string(2,char(219)));
+	int height = board[0].size();
+	int width = board[0][0].size();
+
+
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			
+			if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+				board[0][i][j] = _color.ColorText(std::string(2, char(219)));
+			}
+			if (is_filled) {
+				board[0][i][j] = _color.ColorText(std::string(2, char(219)));
+			}
+
 		}
 	}
 	return board;
