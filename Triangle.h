@@ -26,6 +26,6 @@ public:
     std::string get_desc() override;
     void edit(std::string parameters) override;
     std::string serialise() override;
-
+    void change_while_move(int new_x, int new_y);
 };
 

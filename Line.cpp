@@ -114,3 +114,15 @@ std::string Line::serialise() {
 		+ std::to_string(_y_point2);
 
 }
+
+void Line::change_while_move(int new_x, int new_y) {
+
+	int diff_x = new_x - _bounding_box.get_start_x();
+	int diff_y = new_y - _bounding_box.get_start_y();
+
+	_x_point1 += diff_x;
+	_x_point2 += diff_x;
+	_y_point1 += diff_y;
+	_y_point2 += diff_y;
+
+}

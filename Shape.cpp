@@ -69,6 +69,7 @@ void Shape::move(std::string parameters) {
 			return;
 		}
 	}
+	change_while_move(start_x, start_y);
 	_bounding_box.setStart(start_x, start_y);
 }
 

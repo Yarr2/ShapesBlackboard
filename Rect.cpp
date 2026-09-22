@@ -30,8 +30,11 @@ bool Rect::is_correct_rect(int width, int height) {
 	if (_width > width || _height > height) {
 		return false;
 	}
-	if (0 < _height + _y 
-	|| _y < height) return false;
+
+	if (width + 1 < _x || _x + _width < 1) return false;
+
+	if (height + 1 < _y || _y + _height < 1) return false;
+
 	return true;
 }
 std::string Rect::serialise() {

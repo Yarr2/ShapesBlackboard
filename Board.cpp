@@ -143,13 +143,13 @@ void Board::draw(){
 		width = shape_drawing[0][0].size();
 
 			for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				if (0 < start_x + i && start_x + i < _height &&
-					0 < start_y + j && start_y + j < _width &&
-					shape_drawing[0][i][j] != "  "
-					) {
-					board[0][start_y + i][start_x + j] = shape_drawing[0][i][j];
-				}
+				for (int j = 0; j < width; j++) {
+					if (0 < start_x + j && start_x + j < _height &&
+						0 < start_y + i && start_y + i < _width &&
+						shape_drawing[0][i][j] != "  "
+						) {
+						board[0][start_y + i][start_x + j] = shape_drawing[0][i][j];
+					}
 
 			}
 		}

@@ -51,7 +51,7 @@ Rect Triangle::get_rect(
     int x_max = std::max(std::max(x_point1, x_point2), x_point3);
     int y_max = std::max(std::max(y_point1, y_point2), y_point3);
 
-    return Rect(x_min,y_min, x_max - x_min + 1, y_max - y_min + 1);
+    return Rect(x_min,y_min, y_max - y_min + 1, x_max - x_min + 1);
 }
 
 
@@ -151,3 +151,15 @@ std::string Triangle::serialise() {
         + std::to_string(_y_point3);
 }
 
+void Triangle::change_while_move(int new_x, int new_y) {
+    
+    int diff_x = new_x - _bounding_box.get_start_x();
+    int diff_y = new_y - _bounding_box.get_start_y();
+    
+    _x_point1 += diff_x;
+    _x_point2 += diff_x;
+    _x_point3 += diff_x;
+    _y_point1 += diff_y;
+    _y_point2 += diff_y;
+    _y_point3 += diff_y;
+}

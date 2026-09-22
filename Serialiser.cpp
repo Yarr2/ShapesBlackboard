@@ -48,7 +48,6 @@ Board* Serialiser::decerialise(std::string text) {
 				}
 				bool is_filled = (fill == "fill");
 				if (type == "rect") {
-
 					int start_x, start_y, height, width;
 					if (line_stream >> start_x >> start_y >> height >> width) {
 						Shape* shape = new Rectangle(is_filled, color, Rect(start_x, start_y, height, width));
@@ -56,8 +55,6 @@ Board* Serialiser::decerialise(std::string text) {
 						loaded_board->add(shape);
 						continue;
 					};
-					delete loaded_board;
-					return nullptr;
 				}
 				if (type == "circle") {
 					int center_x, center_y, radius;
@@ -67,8 +64,6 @@ Board* Serialiser::decerialise(std::string text) {
 						loaded_board->add(shape);
 						continue;
 					}
-					delete loaded_board;
-					return nullptr;
 				}
 				if (type == "line") {
 					int x1, y1, x2, y2;
@@ -78,8 +73,6 @@ Board* Serialiser::decerialise(std::string text) {
 						loaded_board->add(shape);
 						continue;
 					}
-					delete loaded_board;
-					return nullptr;
 				}
 				if (type == "triangle") {
 					int x1, y1, x2, y2, x3, y3;
@@ -89,9 +82,9 @@ Board* Serialiser::decerialise(std::string text) {
 						loaded_board->add(shape);
 						continue;
 					}
-					delete loaded_board;
-					return nullptr;
 				}
+				delete loaded_board;
+				return nullptr;
 			}
 		}
 		else {
@@ -101,6 +94,7 @@ Board* Serialiser::decerialise(std::string text) {
 		}
 
 	}
+	loaded_board->selectById(selectedId);
 	return loaded_board;
 
 
