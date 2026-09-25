@@ -33,7 +33,6 @@ public:
 	}
 	std::string get_hash();
 	virtual void change_while_move(int new_x, int new_y) { return; };
-	virtual	void setSize() {}
 	virtual std::vector<std::vector<std::string>>* draw() = 0;
 	virtual std::string get_desc() = 0;
 	virtual void edit(std::string parameters) = 0;
