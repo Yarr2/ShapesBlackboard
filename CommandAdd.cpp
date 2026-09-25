@@ -30,6 +30,10 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
     if (shape_type == "rect") {
         int start_x, start_y, height, width;
         if (parameters_stream >> start_x >> start_y >> height >> width) {
+            if (height == 0 || width == 0) {
+                std::cout << "You cannot add rectangles with 0 width/height\n";
+                return;
+            }
             Shape* shape = new Rectangle(is_filled,color, Rect(start_x, start_y, height, width));
             board->add(shape);
         };
@@ -38,6 +42,11 @@ void CommandAdd::ExecuteParameters(Board* board, std::string parameters) {
     if (shape_type == "circle") {
         int center_x, center_y, radius;
         if (parameters_stream >> center_x >> center_y >> radius) {
+            if (radius == 0) {
+                std::cout << "You cannot add circles with 0 radius\n";
+                return;
+            }
+            
             Shape* shape = new Circle(is_filled, color, center_x, center_y, radius);
             board->add(shape);
            }

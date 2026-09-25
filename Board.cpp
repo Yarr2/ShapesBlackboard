@@ -59,7 +59,6 @@ Shape* Board::getById(int id) {
 			return shape;
 		}
 	}
-	std::cout << "There is no shape with this id\n";
 	return nullptr;
 
 }
@@ -144,8 +143,8 @@ void Board::draw(){
 
 			for (int i = 0; i < height; i++) {
 				for (int j = 0; j < width; j++) {
-					if (0 < start_x + j && start_x + j < _height &&
-						0 < start_y + i && start_y + i < _width &&
+					if (0 < start_x + j && start_x + j <= _width &&
+						0 < start_y + i && start_y + i <= _height &&
 						shape_drawing[0][i][j] != "  "
 						) {
 						board[0][start_y + i][start_x + j] = shape_drawing[0][i][j];
@@ -178,6 +177,7 @@ void Board::editSelected(std::string parameters) {
 
 	if (shape == nullptr) {
 		std::cout << "No shape is selected now.\n";
+		return;
 	}
 
 	shape->edit(parameters);
@@ -187,8 +187,8 @@ void Board::moveSelected(std::string parameters) {
 
 	if (shape == nullptr) {
 		std::cout << "No shape is selected now.\n";
+		return;
 	}
-
 	shape->move(parameters);
 
 	int element_id = -1;
